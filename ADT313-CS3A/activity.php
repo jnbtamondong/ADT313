@@ -103,27 +103,37 @@
         )
         );
 
+            
+        $headerSize = sizeof($table["header"]);
+        $arraySize = sizeof($table["body"]); 
+        $i = 0;
         
+        echo("<table>");
+        echo("<tr>");
         
-    echo("<table>");
-    echo("<tr>");
-
-  
-    foreach($table ["header"] as $row) {
-      
-            echo "<th>" . $row . "</th>";
-        
-    }
-    echo ("</tr>");
-    echo ("</table>"); 
-
     
-
-
-    //for($x = 0; $x < $headerSize; $x++) {
-    //echo("<th>");
-
-
-
-
-?>
+    for ($x = 0; $x < $headerSize; $x++) {
+        echo("<th>");
+        echo($table["header"][$x]); 
+        echo("</th>");
+    }
+    echo("</tr>"); 
+    
+    
+    foreach ($table["body"] as $y) {
+        echo("<tr>"); 
+        echo("<td>");
+        echo($i + 1); 
+        echo("</td>");
+        foreach ($y as $z) {
+            echo("<td>"); 
+            echo($z);
+            echo("</td>"); 
+        }
+        echo("</tr>"); 
+        $i++;
+    }
+    
+    echo("</table>"); 
+    
+    ?>
